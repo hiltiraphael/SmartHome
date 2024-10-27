@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace SmartHome.Services
 {
-    public interface IWettersensor
+    public interface IWettersensor : INotifyPropertyChanged
     {
-        decimal GetAussentemperatur();
-
-        int GetWindgeschwindikeit();
-
-        bool IsRegen();
+        decimal Aussentemperatur { get;}
+        decimal Windgeschwindigkeit { get; }
+        bool Regen { get; }
 
         void Tick();
     }

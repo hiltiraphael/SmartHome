@@ -1,80 +1,77 @@
-﻿using System.Timers;
+﻿using System.ComponentModel;
+using System.Timers;
 
 namespace SmartHome.Services
 {
-
     public class Wettersensor : IWettersensor
     {
-        private static decimal aussentemperatur;
-        private static int windgeschwindigkeit;
-        private static bool regen;
-        private Random random;
-        private System.Timers.Timer timer;
+        private decimal aussentemperatur;
+        private decimal windgeschwindigkeit;
+        private bool regen;
 
-        public Wettersensor()
-        {
-            aussentemperatur = 15m; 
-            windgeschwindigkeit = 10; 
+        private readonly Random random = new Random();
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        public Wettersensor() {
+            aussentemperatur = 20;
+            windgeschwindigkeit = 30;
             regen = false;
-            random = new Random();
-
-            timer = new System.Timers.Timer(1000);
-            timer.Elapsed += OnTimedEvent;
-            timer.AutoReset = true;
-            timer.Enabled = true;
         }
 
-        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        public decimal Aussentemperatur
         {
-            Tick();
-            Console.WriteLine($"Neue Temperatur: {aussentemperatur}°C, Wind: {windgeschwindigkeit} km/h, Regen: {regen}");
+            get => aussentemperatur;
+            private set
+            {
+                if (aussentemperatur != value)
+                {
+                    aussentemperatur = value;
+                    OnPropertyChanged(nameof(Aussentemperatur));
+                }
+            }
         }
 
-        public decimal GetAussentemperatur()
+        public decimal Windgeschwindigkeit
         {
-            return aussentemperatur;
+            get => windgeschwindigkeit;
+            private set
+            {
+                if (windgeschwindigkeit != value)
+                {
+                    windgeschwindigkeit = value;
+                    OnPropertyChanged(nameof(Windgeschwindigkeit));
+                }
+            }
         }
 
-        public int GetWindgeschwindikeit()
+        public bool Regen
         {
-            return windgeschwindigkeit;
+            get => regen;
+            private set
+            {
+                if (regen != value)
+                {
+                    regen = value;
+                    OnPropertyChanged(nameof(Regen));
+                }
+            }
         }
 
-        public bool IsRegen()
+        protected virtual void OnPropertyChanged(string propertyName)
         {
-            return regen;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public void Tick()
         {
-            decimal temperaturAenderung = (decimal)(random.NextDouble() * 1 - 0.5);
-            aussentemperatur += temperaturAenderung;
+            Aussentemperatur += (decimal)(random.NextDouble() - 0.5);
+            Aussentemperatur = Math.Clamp(Aussentemperatur, -5, 30);
 
-            if (aussentemperatur < -5)
-            {
-                aussentemperatur = -5;
-            }
-            else if (aussentemperatur > 30)
-            {
-                aussentemperatur = 30;
-            }
+            Windgeschwindigkeit += random.Next(-2, 2);
+            Windgeschwindigkeit = Math.Max(0, Math.Min(Windgeschwindigkeit, 150));
 
-            int windAenderung = random.Next(-2, 3);
-            windgeschwindigkeit += windAenderung;
-
-            if (windgeschwindigkeit < 0)
-            {
-                windgeschwindigkeit = 0;
-            }
-            else if (windgeschwindigkeit > 150)
-            {
-                windgeschwindigkeit = 150;
-            }
-
-            if (random.Next(0, 10) == 0)
-            {
-                regen = !regen;
-            }
+            Regen = random.Next(0, 10) == 0;
+            Console.WriteLine($"Neue Temperatur: {Aussentemperatur.ToString("F1")}°C, Wind: {Windgeschwindigkeit} km/h, Regen: {Regen}");
         }
     }
 }

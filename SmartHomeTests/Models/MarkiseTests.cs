@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using SmartHome.Models;
+using SmartHome.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +11,14 @@ using System.Threading.Tasks;
 namespace SmartHome.Models.Tests
 {
     [TestClass()]
-    public class AkteurTests
+    public class MarkiseTests
     {
-        [TestMethod()]
-        public void TriggerTest()
+        private Mock<IWettersensor> _sensorMock;
+
+        [TestInitialize]
+        public void Setup()
         {
-            Assert.Fail();
+            _sensorMock = new Mock<IWettersensor>();
         }
     }
 }

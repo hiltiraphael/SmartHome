@@ -1,18 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SmartHome.Services;
 
 namespace SmartHome.Models
 {
-    public class Akteur(AkteurTyp akteurTyp)
+    public abstract class Akteur
     {
-        public AkteurTyp AkteurTyp { get; set; } = akteurTyp;
+        public readonly IWettersensor _wettersensor;
 
-        public void Trigger(string action)
+        protected Akteur(IWettersensor sensor)
         {
-            Console.WriteLine($"{AkteurTyp.ToString()} führt Aktion {action} aus.");
+            _wettersensor = sensor;
+        }
+
+        public abstract void Trigger(Raum raum);
+
+        protected void LogStatus(string steuerungName, string raumName,string status)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{steuerungName} im Raum {raumName} wird {status}");
+            Console.ResetColor();
         }
     }
 }
