@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="SmartHome.Models.Akteur" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAQCAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Akteur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHome.Models.Heizungsventil">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="SmartHome.Models.Heizungsventil.HeizungsventilStatus" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\Heizungsventil.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Heizungsventil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHome.Models.Jalousie">
+    <Position X="7" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="SmartHome.Models.Jalousie.JalousienenStatus" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\Jalousie.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Jalousie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHome.Models.Markise">
+    <Position X="2.5" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="SmartHome.Models.Markise.MarkisenStatus" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\Markise.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Markise.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHome.Models.Raum" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAFAAIAAAAAAQASAAgAAAAAAAAAgBABAAAA=</HashCode>
+      <FileName>Models\Raum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartHome.Services.Wettersensor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIIAAAACABgAAAAQAAAARAAAAAQAA=</HashCode>
+      <FileName>Services\Wettersensor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Program" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAQAAAAAAIAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SmartHome.Services.IWettersensor" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAQAAAABAAAAAQAA=</HashCode>
+      <FileName>Services\IWettersensor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="SmartHome.Models.RaumTyp" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAUAABAAAgAAEAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RaumTyp.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
