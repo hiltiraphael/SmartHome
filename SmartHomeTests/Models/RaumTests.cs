@@ -22,6 +22,7 @@ namespace SmartHome.Models.Tests
             _sensorMock = new Mock<IWettersensor>();
         }
 
+        [TestMethod]
         public void AddHeinzungsventil_ShouldAddHeizungsventil_WennRoomTypNichtWintergartenOderGarage()
         {
             // Arrange
