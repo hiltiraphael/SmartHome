@@ -36,6 +36,7 @@ namespace SmartHome.Models.Tests
             Assert.AreEqual(heizungsventil.Status, Heizungsventil.HeizungsventilStatus.geöffnet);
         }
 
+        [TestMethod]
         public void Heizungsventil_Geschlossen_WennAussentemperaturHöher()
         {
             // Arrange
